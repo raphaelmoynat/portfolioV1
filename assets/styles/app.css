@@ -1,3 +1,99 @@
 body {
-    background-color: skyblue;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+h1{
+    font-family: VisbyExtraBold, sans-serif;
+}
+
+h2{
+    font-family: VisbyBold;
+}
+
+.navbar {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    font-family: VisbyBold;
+}
+
+.navbar-nav {
+    flex-grow: 1;
+    justify-content: center;
+    width: 600px;
+}
+
+.nav-link {
+    color: #000;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+
+}
+
+.content-container {
+    width: 50%;
+    padding: 2% 8%;
+}
+
+.title-host {
+    margin-bottom: 20px;
+    margin-top: 15%;
+    width: 500px;
+    font-family: VisbyExtraBold, sans-serif;
+}
+
+.content-host {
+    margin-top: 15%;
+    width: 450px;
+    font-size: 1.2em;
+    font-family: Visby;
+}
+
+.img-host {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: end;
+
+}
+
+.img-host img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+}
+
+.box-btn-host{
+    margin-top: 15%;
+    padding: 10px 20px;
+    width: 200px;
+    background-color: black;
+    font-family: VisbyBold;
+    transition: 0.4s;
+}
+
+.btn-host{
+    text-decoration: none;
+    color: white;
+}
+
+.box-btn-host:hover{
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+
+
+

@@ -1,0 +1,51 @@
+.box-contact{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-title{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.box-form{
+    margin-top: 25px;
+    width: 800px;
+    height: 600px;
+    background-color: #ead4bd;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    font-family: Visby;
+    font-size: 1.2em;
+
+}
+
+.bloc-btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.btn-contact{
+    padding: 10px 20px;
+    background-color: black;
+    font-family: VisbyBold;
+    transition: 0.4s;
+    color: white;
+}
+
+.btn-contact:hover{
+    border-radius: 30px;
+    transition: 0.4s;
+}
