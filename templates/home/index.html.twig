@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% include "home/host.html.twig" %}
+    {% include "home/profile.html.twig" %}
+    {% include "home/competences.html.twig" %}
+    {% include "home/portfolio.html.twig" with {'project':projects} %}
+    {% include "home/contact.html.twig" %}
+{% endblock %}
+
+
