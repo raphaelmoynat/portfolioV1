@@ -13,8 +13,18 @@
                     <div class="description-project">
                         {{ project.description }}
                     </div>
+
                     <div class="box-btn-project">
-                        <a href="#" class="btn-project">En savoir plus</a>
+
+                        <a href="#" class="btn-project" data-bs-toggle="modal" data-bs-target="#projetModal{{ loop.index }}" data-bs-name="{{ project.title }}" data-bs-description="{{ project.description }}">En savoir plus</a>
+
+                    </div>
+
+                    <div class="box-btn-project">
+                        <a href="{{ path("app_delete_project", {id: project.id})  }}" class="btn-project">Delete</a>
+                    </div>
+                    <div class="box-btn-project">
+                        <a href="{{ path("app_edit_project", {id: project.id})  }}" class="btn-project">Edit</a>
                     </div>
                 </div>
                 <div class="content-right">
@@ -22,6 +32,26 @@
                 </div>
             </div>
             {% endfor %}
+            {% for project in projects|reverse %}
+                <div class="modal fade" id="projetModal{{ loop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle{{ loop.index }}">{{ project.title }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="modalBody{{ loop.index }}">
+
+                                <h6 class="card-text mt-3">Description : {{ project.description }}</h6>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
                 <div class="box-project">
                     <div class="content-right">
 
@@ -38,6 +68,8 @@
                             <a href="#" class="btn-project">En savoir plus</a>
                         </div>
                     </div>
+
+
 
                 </div>
 

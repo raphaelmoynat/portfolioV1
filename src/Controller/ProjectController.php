@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 
+
 use App\Entity\Project;
 use App\Form\ProjectType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,19 +43,36 @@ class ProjectController extends AbstractController
         return $this->render('project/create.html.twig', [
             "project"=>$project,
             "form"=>$form->createView(),
+            "btnValue"=>"Ajouter"
         ]);
     }
 
-    #[Route('/project/delete/{id}', name: 'app_delete_prjoect', priority: 3)]
+    #[Route('/project/delete/{id}', name: 'app_delete_project', priority: 3)]
     public function delete(EntityManagerInterface $manager, Project $project):Response
     {
-
-        if (!$this->isGranted('ROLE_ADMIN')){
-            return $this->redirectToRoute('app_product');
-        }
-        $manager->remove($product);
+        $manager->remove($project);
         $manager->flush();
-        return $this->redirectToRoute("app_product_admin");
+        return $this->redirectToRoute("app_home");
+    }
+
+    #[Route('project/edit/{id}', name: 'app_edit_project', priority: 4)]
+    public function edit(Request $request, EntityManagerInterface $manager, Project $project):Response
+    {
+
+        $form = $this->createForm(ProjectType::class, $project);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($project);
+            $manager->flush();
+            return $this->redirectToRoute("app_home");
+        }
+
+        return $this->render('project/create.html.twig', [
+            "form"=>$form->createView(),
+            "btnValue"=>"Editer"
+        ]);
+
     }
 
 
